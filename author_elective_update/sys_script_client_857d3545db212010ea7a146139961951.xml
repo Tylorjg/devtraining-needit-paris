@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Get the email.</description>
+        <field>active</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>GetUsersEmailAddress</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+	alert("Hello");
+   //Type appropriate comment here, and begin script below
+	var getEmailAddr = GlideAjax('GetEmailAddress');
+	getEmailAddr.addParam('sysparm_name', 'getEmail');
+	getEmailAddr.addParam('sysparm_userID', g_form.getValue('u_requested_for'));
+	getEmailAddr.getXML(updateEmail);
+	
+	function updateEmail(response) {
+		var responseEmail = response.responseXML.documentElement.getAttribute("answer");
+		g_form.clearValue('u_requested_for_email');
+		g_form.setValue('u_requested_for_email', responseEmail);
+	}
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-01-05 04:42:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>857d3545db212010ea7a146139961951</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>GetUsersEmailAddress</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_857d3545db212010ea7a146139961951</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-01-05 20:29:27</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>07b30e1adbbe5b004c1ff70fbf961985</instance_id>
+        <instance_name>dev62157</instance_name>
+        <name>sys_script_client_857d3545db212010ea7a146139961951</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Get the email.&lt;/description&gt;&lt;field&gt;active&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;GetUsersEmailAddress&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+	alert("Hello");
+   //Type appropriate comment here, and begin script below
+	var getEmailAddr = GlideAjax('GetEmailAddress');
+	getEmailAddr.addParam('sysparm_name', 'getEmail');
+	getEmailAddr.addParam('sysparm_userID', g_form.getValue('u_requested_for'));
+	getEmailAddr.getXML(updateEmail);
+	
+	function updateEmail(response) {
+		var responseEmail = response.responseXML.documentElement.getAttribute("answer");
+		g_form.clearValue('u_requested_for_email');
+		g_form.setValue('u_requested_for_email', responseEmail);
+	}
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-01-05 04:42:57&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;857d3545db212010ea7a146139961951&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;GetUsersEmailAddress&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_857d3545db212010ea7a146139961951&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-01-05 20:29:27&lt;/sys_updated_on&gt;&lt;table&gt;x_58872_needit_needit&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>744287550</payload_hash>
+        <record_name>GetUsersEmailAddress</record_name>
+        <reverted_from/>
+        <source>dc91f11adbc12010ea7a1461399619ee</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-01-05 20:29:27</sys_created_on>
+        <sys_id>45771d1ddb292010ea7a1461399619ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>176d43d7a360000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-01-05 20:29:27</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>8d771d1db429201031d249eba28353ac</update_guid>
+        <update_guid_history>8d771d1db429201031d249eba28353ac:744287550,73904ac5332120105b33529d869eb0b4:-855300437,cacffd85a02120102871d58519b1d785:1515400860,a8def145cd212010a642f4e25230003f:960391988</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-01-05 20:32:15</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>3cc151b9c56642d0b0e715d725753900</sys_id>
+        <sys_metadata>857d3545db212010ea7a146139961951</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetUsersEmailAddress</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent display_value="NeedIt">8d02755adbc12010ea7a146139961937</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_script_client_857d3545db212010ea7a146139961951</sys_update_name>
+        <sys_update_version display_value="sys_script_client_857d3545db212010ea7a146139961951">45771d1ddb292010ea7a1461399619ad</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-01-05 20:32:15</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
